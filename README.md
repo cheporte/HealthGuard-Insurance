@@ -79,7 +79,7 @@ uvicorn app.main:app --reload
 2. Open your browser and navigate to:
 
 ```plaintext
-http://localhost:8000/predict
+http://localhost:8000/api/v1/risk/predict
 ```
 
 3. Fill in the form with the required information and submit to get a prediction.
