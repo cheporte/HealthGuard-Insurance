@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HealthGuard - Прогноз Ризику Ожиріння</title>
-    <!-- FIX: Правильне посилання на CDN Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Стилі для шрифту та основних елементів, які Tailwind не може стилізувати напряму */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         
         body {
@@ -18,7 +16,6 @@
             justify-content: center;
         }
 
-        /* Виправлення стандартних стилів для більшої витонченості */
         .form-group { margin-bottom: 1.5rem; }
         label { 
             display: block; 
@@ -28,13 +25,11 @@
             transition: color 0.15s;
         }
         
-        /* Забезпечення однакового вигляду для всіх полів введення/вибору */
         input[type="number"], select {
             transition: all 0.15s;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
-        /* Стилізація фокусу для кращої доступності */
         input:focus, select:focus {
             outline: none;
             box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.4); /* Tailwind green-500 shadow */
@@ -189,15 +184,6 @@
             <h2 class="text-2xl font-bold text-green-800 mb-2">✅ Результат Прогнозу:</h2>
             <p class="text-xl">Категорія Ризику Ожиріння: <strong class="text-green-900">{{ category }}</strong></p>
             <p class="text-sm text-gray-500 mt-2">Модель: CatBoost, Прогнозований код: {{ prediction|round(4) }}</p>
-            
-            <details class="mt-4">
-                <summary class="cursor-pointer text-gray-700 font-semibold hover:text-green-600 transition duration-150">Введені дані (Сирі)</summary>
-                <div class="mt-2 text-sm bg-gray-100 p-3 rounded-md border border-gray-200">
-                    {% for key, value in input_data.items() %}
-                        <p><strong>{{ key }}:</strong> {{ value }}</p>
-                    {% endfor %}
-                </div>
-            </details>
         </div>
         {% elif category is not none and "Помилка" in category %}
         <div class="result mt-8 p-6 rounded-lg border-2 border-red-500 bg-red-50 shadow-md">
