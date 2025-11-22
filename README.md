@@ -2,7 +2,7 @@
 
 An ML-powered web application for health risk assessment and obesity level prediction using machine learning.
 
-This repository is a continuation and practical implementation of the machine learning concepts explored in [ML NULP Course](https://github.com/cheporte/ml-nulp-course). It applies the learned techniques in a real-world application for obesity level prediction.
+This repository is a continuation and practical implementation of the machine learning concepts explored in [ML NULP Course](https://github.com/noqtisnox/ml-nulp-course). It applies the learned techniques in a real-world application for obesity level prediction.
 
 ## Overview
 
