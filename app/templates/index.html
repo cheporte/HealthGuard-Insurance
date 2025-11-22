@@ -35,7 +35,78 @@
             box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.4); /* Tailwind green-500 shadow */
             border-color: #10B981; /* Tailwind green-500 */
         }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .button-group button, .button-group input[type="submit"] {
+            flex: 1;
+            min-width: 150px;
+        }
     </style>
+
+    <script>
+        function generateRandomFormData() {
+            // Random age (18-70)
+            document.querySelector('input[name="Age"]').value = Math.floor(Math.random() * 52) + 18;
+            
+            // Random height (1.5-2.0 m)
+            document.querySelector('input[name="Height"]').value = (Math.random() * 0.5 + 1.5).toFixed(2);
+            
+            // Random weight (40-150 kg)
+            document.querySelector('input[name="Weight"]').value = (Math.random() * 110 + 40).toFixed(1);
+            
+            // Random FCVC (1-3)
+            document.querySelector('input[name="FCVC"]').value = (Math.random() * 2 + 1).toFixed(1);
+            
+            // Random NCP (1-4)
+            document.querySelector('input[name="NCP"]').value = (Math.random() * 3 + 1).toFixed(1);
+            
+            // Random CH2O (1-3)
+            document.querySelector('input[name="CH2O"]').value = (Math.random() * 2 + 1).toFixed(1);
+            
+            // Random FAF (0-3)
+            document.querySelector('input[name="FAF"]').value = (Math.random() * 3).toFixed(1);
+            
+            // Random TUE (0-2)
+            document.querySelector('input[name="TUE"]').value = (Math.random() * 2).toFixed(1);
+            
+            // Random gender
+            document.querySelector('select[name="Gender"]').value = Math.random() > 0.5 ? 'Male' : 'Female';
+            
+            // Random family history
+            document.querySelector('select[name="family_history_with_overweight"]').value = Math.random() > 0.5 ? 'yes' : 'no';
+            
+            // Random FAVC
+            document.querySelector('select[name="FAVC"]').value = Math.random() > 0.5 ? 'yes' : 'no';
+            
+            // Random CAEC
+            const caecOptions = ['Never', 'Sometimes', 'Frequently', 'Always'];
+            document.querySelector('select[name="CAEC"]').value = caecOptions[Math.floor(Math.random() * caecOptions.length)];
+            
+            // Random SMOKE
+            document.querySelector('select[name="SMOKE"]').value = Math.random() > 0.7 ? 'yes' : 'no';
+            
+            // Random SCC
+            document.querySelector('select[name="SCC"]').value = Math.random() > 0.6 ? 'yes' : 'no';
+            
+            // Random CALC
+            const calcOptions = ['Never', 'Sometimes', 'Frequently', 'Always'];
+            document.querySelector('select[name="CALC"]').value = calcOptions[Math.floor(Math.random() * calcOptions.length)];
+            
+            // Random MTRANS
+            const mtransOptions = ['Automobile', 'Bike', 'Motorbike', 'Public_Transportation', 'Walking'];
+            document.querySelector('select[name="MTRANS"]').value = mtransOptions[Math.floor(Math.random() * mtransOptions.length)];
+        }
+
+        function clearFormData() {
+            document.querySelector('form').reset();
+        }
+    </script>
 </head>
 <body class="bg-gray-100 p-4 sm:p-8">
 
@@ -173,9 +244,15 @@
             </div>
 
             <div class="col-span-1 md:col-span-2 mt-4 text-center">
-                <button type="submit" class="w-full md:w-1/2 p-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition duration-150 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                    Зробити Прогноз Ризику
-                </button>
+                <div class="button-group">
+                    <button type="button" onclick="generateRandomFormData()" class="p-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition duration-150 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        🎲 Випадкові Дані
+                    </button>
+                    <button type="button" onclick="clearFormData()" class="p-3 bg-gray-600 text-white font-bold rounded-lg hover:bg-gray-700 transition duration-150 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        🔄 Очистити
+                    </button>
+                    <input type="submit" value="Зробити Прогноз Ризику" class="p-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition duration-150 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer">
+                </div>
             </div>
         </form>
 
